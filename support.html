@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="鲜花日记 / 鮮花日記 / Flower Diary - Technical Support / 技术支持 / 技術支援">
+  <meta name="robots" content="index, follow">
+  <title>鲜花日记 技术支持 | Flower Diary Support</title>
+  <style>
+    :root {
+      --bg: #FDF8F0;
+      --surface: #FFFFFF;
+      --text: #3D3226;
+      --text-soft: #6B5D4F;
+      --accent: #C9A96A;
+      --accent-soft: #E8D9B8;
+      --border: #EFE6D4;
+      --link: #A07C3E;
+      --shadow: 0 2px 16px rgba(61, 50, 38, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .logo-icon {
+      display: inline-block;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #E8D9B8 0%, #C9A96A 100%);
+      line-height: 48px;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .logo {
+      font-size: 14px;
+      letter-spacing: 4px;
+      color: var(--accent);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .lang-switch {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 32px 0 40px;
+      flex-wrap: wrap;
+    }
+
+    .lang-switch button {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+      padding: 10px 20px;
+      border-radius: 24px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .lang-switch button:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .lang-switch button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #FFFFFF;
+      font-weight: 500;
+    }
+
+    .content {
+      display: none;
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .content h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0 0 24px;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+
+    .content h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 32px 0 16px;
+    }
+
+    .content h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .content p {
+      margin: 0 0 16px;
+      color: var(--text);
+    }
+
+    .content a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-soft);
+      transition: border-color 0.2s;
+    }
+
+    .content a:hover {
+      border-color: var(--accent);
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #FDF8F0 0%, #F5EBD6 100%);
+      border: 1px solid var(--accent-soft);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 16px 0 24px;
+    }
+
+    .contact-box .label {
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .contact-box .email {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--link);
+    }
+
+    .faq-item {
+      background: #FAFAF6;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+
+    .faq-item .question {
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 8px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .faq-item .question::before {
+      content: "Q";
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .faq-item .answer {
+      color: var(--text-soft);
+      margin: 0;
+      padding-left: 24px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .faq-item .answer::before {
+      content: "A";
+      color: var(--accent-soft);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-left: -24px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .footer .app-name {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+      font-size: 13px;
+    }
+
+    .footer-links a {
+      color: var(--text-soft);
+      text-decoration: none;
+      margin: 0 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 24px 16px 60px; }
+      .content { padding: 32px 24px; border-radius: 12px; }
+      .content h1 { font-size: 24px; }
+      .content h2 { font-size: 17px; }
+      .lang-switch { gap: 6px; }
+      .lang-switch button { padding: 8px 16px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo-icon">🌸</div>
+      <div class="logo">Flower Diary</div>
+    </div>
+
+    <div class="lang-switch" role="tablist" aria-label="Language">
+      <button class="active" data-lang="zh-Hans" onclick="showLang('zh-Hans', this)">简体中文</button>
+      <button data-lang="zh-Hant" onclick="showLang('zh-Hant', this)">繁體中文</button>
+      <button data-lang="en" onclick="showLang('en', this)">English</button>
+    </div>
+
+    <!-- 简体中文 -->
+    <div id="zh-Hans" class="content active" lang="zh-Hans">
+      <h1>鲜花日记 技术支持</h1>
+
+      <h2>联系我们</h2>
+      <p>如果在使用鲜花日记时遇到任何问题，欢迎通过以下方式联系我们：</p>
+      <div class="contact-box">
+        <div class="label">邮箱</div>
+        <div class="email"><a href="mailto:wyid194@gmail.com">wyid194@gmail.com</a></div>
+      </div>
+
+      <h2>常见问题</h2>
+
+      <div class="faq-item">
+        <p class="question">数据存储在哪里？</p>
+        <p class="answer">所有数据存储在你的设备本地，不会上传到云端。</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="question">卸载后数据会丢失吗？</p>
+        <p class="answer">是的，卸载应用会删除所有本地数据，请谨慎操作。</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="question">如何取消订阅？</p>
+        <p class="answer">打开 iPhone 设置 → Apple ID → 订阅 → 找到鲜花日记 → 取消订阅。</p>
+      </div>
+    </div>
+
+    <!-- 繁體中文 -->
+    <div id="zh-Hant" class="content" lang="zh-Hant">
+      <h1>鮮花日記 技術支援</h1>
+
+      <h2>聯絡我們</h2>
+      <p>如果在使用鮮花日記時遇到任何問題，歡迎透過以下方式聯絡我們：</p>
+      <div class="contact-box">
+        <div class="label">電子郵件</div>
+        <div class="email"><a href="mailto:wyid194@gmail.com">wyid194@gmail.com</a></div>
+      </div>
+
+      <h2>常見問題</h2>
+
+      <div class="faq-item">
+        <p class="question">資料儲存於哪裡？</p>
+        <p class="answer">所有資料均儲存於您的裝置本地，不會上傳至雲端。</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="question">解除安裝後資料會遺失嗎？</p>
+        <p class="answer">是的，解除安裝應用會刪除所有本地資料，請謹慎操作。</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="question">如何取消訂閱？</p>
+        <p class="answer">開啟 iPhone 設定 → Apple ID → 訂閱項目 → 找到鮮花日記 → 取消訂閱。</p>
+      </div>
+    </div>
+
+    <!-- English -->
+    <div id="en" class="content" lang="en">
+      <h1>Flower Diary Support</h1>
+
+      <h2>Contact Us</h2>
+      <p>If you encounter any issues while using Flower Diary, please reach out to us through the following channel:</p>
+      <div class="contact-box">
+        <div class="label">Email</div>
+        <div class="email"><a href="mailto:wyid194@gmail.com">wyid194@gmail.com</a></div>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <p class="question">Where is my data stored?</p>
+        <p class="answer">All data is stored locally on your device and is never uploaded to the cloud.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="question">Will I lose my data if I uninstall the app?</p>
+        <p class="answer">Yes. Uninstalling the app will permanently delete all local data, so please proceed with caution.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="question">How do I cancel my subscription?</p>
+        <p class="answer">Open iPhone Settings → Apple ID → Subscriptions → Find Flower Diary → Cancel Subscription.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="app-name">Flower Diary</span> · © 2026 · All rights reserved
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="privacy.html#zh-Hant">私隱政策</a>
+        <a href="privacy.html#zh-Hans">隐私政策</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showLang(lang, btn) {
+      document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+      document.getElementById(lang).classList.add('active');
+      if (btn) btn.classList.add('active');
+      document.documentElement.lang = lang === 'zh-Hans' ? 'zh-Hans' : (lang === 'zh-Hant' ? 'zh-Hant' : 'en');
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', '#' + lang);
+      }
+    }
+
+    (function() {
+      const hash = window.location.hash.replace('#', '');
+      const validLangs = ['zh-Hans', 'zh-Hant', 'en'];
+      if (validLangs.includes(hash)) {
+        const btn = document.querySelector(`[data-lang="${hash}"]`);
+        showLang(hash, btn);
+      } else {
+        const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        let detected = 'zh-Hans';
+        if (browserLang.startsWith('zh')) {
+          if (browserLang.includes('hant') || browserLang.includes('tw') || browserLang.includes('hk') || browserLang.includes('mo')) {
+            detected = 'zh-Hant';
+          } else {
+            detected = 'zh-Hans';
+          }
+        } else if (browserLang.startsWith('en')) {
+          detected = 'en';
+        }
+        const btn = document.querySelector(`[data-lang="${detected}"]`);
+        showLang(detected, btn);
+      }
+    })();
+  </script>
+</body>
+</html>
