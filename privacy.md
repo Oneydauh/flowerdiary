@@ -1,4 +1,6 @@
-# 鲜花日记 隐私政策 | 鮮花日記 私隱政策 | Flower Diary Privacy Policy
+# 鲜花日记 隐私政策
+# 鮮花日記 私隱政策
+# Flower Diary Privacy Policy
 隐私政策更新日期：2026 年 6 月 19 日
 私隱政策更新日期：2026 年 6 月 19 日
 Last Updated: June 19, 2026
