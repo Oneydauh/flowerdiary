@@ -1,4 +1,4 @@
-# 鲜花日记
+# 鲜花日记 - FlowerDiary
 
 隐私政策 - privacy.md
 
