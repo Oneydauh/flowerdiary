@@ -1,5 +1,7 @@
 /* The complete guide is in HTML; scripts only add search and copying. */
 (() => {
+  const lang = document.documentElement.lang;
+  const t = (zh, hant, en) => lang === 'en' ? en : lang === 'zh-Hant' ? hant : zh;
   const sections = [...document.querySelectorAll('.guide-section')];
   const input = document.querySelector('#guide-search');
   const clear = document.querySelector('#clear-search');
@@ -27,7 +29,7 @@
     });
     clear.hidden = !query;
     status.hidden = !query;
-    status.textContent = count ? `找到 ${count} 个相关章节。` : '本页没有匹配内容。可换个词，或到页首功能索引查找。';
+    status.textContent = count ? t(`找到 ${count} 个相关章节。`, `找到 ${count} 個相關章節。`, `${count} matching sections found.`) : t('本页没有匹配内容。可换个词，或到页首功能索引查找。', '本頁沒有符合內容。可換個詞，或到頁首功能索引查找。', 'No matches on this page. Try another term or the feature index.');
   };
   input?.addEventListener('input', search);
   clear?.addEventListener('click', () => {input.value = ''; search(); input.focus();});
@@ -41,8 +43,8 @@
   document.querySelectorAll('.copy-button, .copy-keywords').forEach(button => button.addEventListener('click', async () => {
     const keyword = button.classList.contains('copy-keywords');
     const text = keyword ? button.closest('.term').querySelector('.keyword-text').textContent : button.closest('.example').querySelector('blockquote').textContent;
-    try {await copy(text); announce(keyword ? '检索词已复制' : '示例已复制');}
-    catch {announce('请选中文字后复制');}
+    try {await copy(text); announce(keyword ? t('检索词已复制','檢索詞已複製','Search terms copied') : t('示例已复制','範例已複製','Example copied'));}
+    catch {announce(t('请选中文字后复制','請選取文字後複製','Select the text and copy it'));}
   }));
   const updateProgress = () => {
     const total = document.documentElement.scrollHeight - innerHeight;

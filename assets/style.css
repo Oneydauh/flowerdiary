@@ -248,3 +248,22 @@ tbody th { font-size: var(--body-size); font-weight: 400; background: transparen
   .table-wrap { overflow: visible; }
   .guide-section[hidden] { display: block !important; }
 }
+
+/* Product and guide navigation share the same size, weight and treatment. */
+.site-header nav { flex-wrap: wrap; gap: 10px; }
+.site-header nav a.nav-action { display: inline-flex; align-items: center; justify-content: center; min-width: 96px; min-height: 42px; box-sizing: border-box; padding: 8px 16px; border: 1px solid var(--line); border-radius: 7px; background: var(--paper, #fff); color: var(--ink); font-size: 14px; font-weight: 400; line-height: 24px; text-decoration: none; }
+.site-header nav a.nav-action:hover { background: var(--soft); }
+.language-switcher { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; padding: 8px 28px; background: white; border-bottom: 1px solid var(--line); font-size: 13px; }
+.language-switcher a { padding: 5px 10px; border-radius: 5px; color: var(--muted); text-decoration: none; }
+.language-switcher a[aria-current=page] { background: var(--soft); color: var(--ink); }
+.legal-page { max-width: 760px; padding-block: 28px 70px; }
+.legal-page p { white-space: pre-line; overflow-wrap: anywhere; }
+html[lang=en] .level-nav { align-items: stretch; }
+@media (max-width:760px) {
+ .site-header { flex-wrap: wrap; }
+ .site-header nav { width: 100%; display: flex; gap: 8px; }
+ .site-header nav a.nav-action { flex: 1; min-width: 0; padding-inline: 8px; }
+ .site-header nav a.download { display: inline-flex; align-items: center; justify-content: center; }
+ .language-switcher { padding-inline: 12px; }
+}
+@media print { .language-switcher { display:none; } }
